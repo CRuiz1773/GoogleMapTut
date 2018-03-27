@@ -1,16 +1,27 @@
 package com.example.administrator.lazyapp;
 
+import android.*;
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 
 /**
- * Created by Administrator on 3/25/2018.
+ * Created by Chris on 3/25/2018.
  */
 
 public class MapActivity extends AppCompatActivity {
+    //Global variables
+    private static final String[] FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
+    private static final String[] COARSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
 
     private static final String TAG = "MapActivity";
+
+    //vars
+    private Boolean mLocationPermissionGranted = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -19,9 +30,21 @@ public class MapActivity extends AppCompatActivity {
     }
 
     private void getLocationPermission(){
-        String[] permissions = {Manifest.permission.ACCESS_FINE_LOCATION,
-                manifest.permiss
+        String[] permissions = { Manifest.permission.ACCESS_FINE_LOCATION,
+                android.Manifest.permission.ACCESS_COARSE_LOCATION
+        };
 
-        }
+        if(ContextCompat.checkSelfPermission(this.getApplicationContext(),
+                FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
+            if(ContextCompat.checkSelfPermission(this.getApplicationContext(),
+                    COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)
+                mLocationPermissionGranted = true;
+            else
+            {
+                ActivityCompat.requestPermissions(this, permissions, 1234);
+            }
     }
+
+
+
 }
