@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "703624359725",
+    "firebase_url": "https://lazyapp-733a9.firebaseio.com",
+    "project_id": "lazyapp-733a9",
+    "storage_bucket": "lazyapp-733a9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:703624359725:android:bcae825b3d0e545c",
+        "android_client_info": {
+          "package_name": "com.example.administrator.lazyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "703624359725-kg4l68cmcpf565qtjos1nnjhnuihqk78.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-bajRCkiaYK92Oof2unyYQeKo_c2HTw4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
