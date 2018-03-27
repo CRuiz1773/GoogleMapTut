@@ -31,10 +31,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void init()
     {
-        Button btnMap = (Button)findViewById(R.id.btnMap);
-        btnMap.setOnClickListener(new View.OnClickListener(){
+        Button btnMap = findViewById(R.id.btnMap);
+        btnMap.setOnClickListener(new  View.OnClickListener(){
             @Override
-            public void onClick()
+            public void onClick(View view)
             {
                 Intent intent = new Intent(MainActivity.this, MapActivity.class);
                 startActivity(intent);
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         int available = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(MainActivity.this);
         //Checks to see if google services is installed
-        if (int result == ConnectionResult.SUCCESS)
+        if (available == ConnectionResult.SUCCESS)
         {
             Log.d(TAG, "isServiceOk: Google play services is working");
             return true;
