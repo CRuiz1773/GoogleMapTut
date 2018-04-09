@@ -18,6 +18,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 
 /**
  * Created by Chris on 3/25/2018.
+ * This app is built off of a basic youtube tutorial. I'll be adding more to it as I learn.
  */
 
 public class MapActivity extends AppCompatActivity {
@@ -48,7 +49,7 @@ public class MapActivity extends AppCompatActivity {
         mapFragment.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(GoogleMap googleMap) {
-                //Toast.makeText(this,"Map is ready.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Map is ready", Toast.LENGTH_SHORT).show();
                 Log.d(TAG, "onMapReady: map is ready");
                 nmap = googleMap;
             }
@@ -63,14 +64,16 @@ public class MapActivity extends AppCompatActivity {
 
         if(ContextCompat.checkSelfPermission(this.getApplicationContext(),
                 FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
-            if(ContextCompat.checkSelfPermission(this.getApplicationContext(),
-                    COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)
-                mLocationPermissionGranted = true;
-            else
+            if(ContextCompat.checkSelfPermission(this.getApplicationContext(), COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)
             {
-                ActivityCompat.requestPermissions(this, permissions, LOCATION_PERMISSTION_REQUEST_CODE);
+                mLocationPermissionGranted = true;
+                initMap();
             }
+            else
+                ActivityCompat.requestPermissions(this, permissions, LOCATION_PERMISSTION_REQUEST_CODE);
 
+        else
+            ActivityCompat.requestPermissions(this, permissions, LOCATION_PERMISSTION_REQUEST_CODE);
     }
 
     @Override
