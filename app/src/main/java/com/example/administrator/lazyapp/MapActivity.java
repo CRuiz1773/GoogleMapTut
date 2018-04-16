@@ -32,6 +32,7 @@ public class MapActivity extends AppCompatActivity {
     //vars
     private Boolean mLocationPermissionGranted = false;
     private GoogleMap nmap;
+    private FusedLocationProviderClient mFusedLocationProviderClient;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,6 +40,11 @@ public class MapActivity extends AppCompatActivity {
         setContentView(R.layout.activity_map);
 
         getLocationPermission();
+    }
+
+    private void getDeviceLocation()
+    {
+        Log.d(TAG, "getDeviceLocation: Getting the current devices location");
     }
 
     private void initMap()

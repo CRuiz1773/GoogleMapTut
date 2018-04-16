@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion "27.0.1"
+    //buildToolsVersion "27.0.1"
     defaultConfig {
         applicationId "com.example.administrator.lazyapp"
         minSdkVersion 15
@@ -20,21 +20,23 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:27.1.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    testCompile 'junit:junit:4.12'
+    implementation 'com.android.support:appcompat-v7:27.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
 
     //Adding Firebase dependency
-    compile 'com.google.firebase:firebase-core:12.0.0'
+    implementation 'com.google.firebase:firebase-core:12.0.0'
     //Adding firebase authentication
-    compile 'com.google.firebase:firebase-auth:12.0.0'
+    implementation 'com.google.firebase:firebase-auth:12.0.0'
     //Google Maps api
-    compile 'com.google.android.gms:play-services-maps:12.0.0'
-
+    implementation 'com.google.android.gms:play-services-maps:12.0.0'
+    //This will provide me with the FusedLocationClient object
+    //You may have to enable this on google dev section
+    implementation 'com.google.android.gms:play-services:12.0.0'
 
 }
 
