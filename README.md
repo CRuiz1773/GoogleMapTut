@@ -1,3 +1,3 @@
-LAZYAPP
+GoogleMapTut
 
-Designing an app that will help me choose places near me to go on dates!
+Designing an app to gain an understanding of how google map api's work
